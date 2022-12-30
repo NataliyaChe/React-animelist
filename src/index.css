@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.wrapper {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  background: teal;
+  padding: 20px;
+}
+
+.header__title {
+  color: white;
+  margin: 0 auto;
+}
+
+.animelist {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 20px;
+}
