@@ -13,9 +13,9 @@ const styles = {
 function AnimeItem({ anime, onClick }) {
   return (
     <div className='anime-item' style={styles.div} onClick={() => console.log('test')}>
-        <h3>{anime.name}</h3>
-        <p>{anime.releaseDate}</p>
-        <p>{anime.genre}</p>
+        <h3>{anime.title}</h3>
+        <p>{anime.episodes}</p>
+        <p>{anime.type}</p>
     </div>
   );
 }
