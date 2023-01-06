@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import AnimeList from './AnimeList'
 import axios from 'axios';
 
 function Main() {
-    const [animes, setAnimes] = useState(null);
+    const [animes, setAnimes] = React.useState([]);
 
-    const fetchAnimes = async () => {
-        const response = await axios.get('https://api.jikan.moe/v4/top/anime?limit=10');
-        console.log('fetch')
-    }
+    useEffect(() => {
+      fetch('https://api.jikan.moe/v4/top/anime?_limit=10')
+        .then(response => response.json())
+        .then(animes => {
+          setAnimes(animes)
+          console.log('fetch')
+        })
+    }, [])
     // const animes = [
     //     {
     //         id: 1,
@@ -158,7 +162,7 @@ function clickOnItem(name) {
 
   return (
     <div className='main'>
-        <AnimeList animes={fetchAnimes} onItemClick={clickOnItem}/>
+        <AnimeList animes={animes} onItemClick={clickOnItem}/>
     </div>
   );
 }
