@@ -27,6 +27,11 @@ code {
   margin: 0 auto;
 }
 
+.navbar {
+  background: teal;
+  min-height: 100px;
+}
+
 .animelist {
   display: grid;
   grid-template-columns: repeat(6, 1fr);

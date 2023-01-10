@@ -1,8 +1,6 @@
 import React from 'react'
 
-const styles = {
 
-}
 
 function SingleAnimePage(props) {
     return (

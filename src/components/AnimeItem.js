@@ -1,5 +1,5 @@
 import React from 'react'
-import SingleAnimePage from './SingleAnimePage'
+// import SingleAnimePage from './SingleAnimePage'
 
 const styles = {
     div: {
