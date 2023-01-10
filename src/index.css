@@ -29,7 +29,12 @@ code {
 
 .navbar {
   background: teal;
-  min-height: 100px;
+  padding: 20px;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 15px;
 }
 
 .animelist {
