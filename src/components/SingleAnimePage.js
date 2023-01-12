@@ -6,22 +6,20 @@ function SingleAnimePage(props) {
     const params = useParams();
     console.log('params', params);
 
-    const [anime, setSingleAnime] = useState();
+    const [singleAnime, setSingleAnime] = useState(params.mal_id);
 
     useEffect(() => {
         const fetchSingleAnime = async () => {
-          const data = await fetch('https://api.jikan.moe/v4/top/anime/{params.id}');
+          const data = await fetch(`https://api.jikan.moe/v4/anime/${params.mal_id}`);
           const singleAnime = await data.json();
-          setSingleAnime(anime.data);
-          
+          setSingleAnime(singleAnime.data);
         }
         fetchSingleAnime()
       }, []);
-
     return (
         <div className='single-anime'>
-            <h2>Single anime page</h2>
-            {/* <p>{anime.title}</p> */}
+            <h2>{singleAnime.title}</h2>
+            <p>{singleAnime.type}</p>
         </div>
     );
 }
