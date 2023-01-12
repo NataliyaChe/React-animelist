@@ -27,6 +27,16 @@ code {
   margin: 0 auto;
 }
 
+.navbar {
+  background: teal;
+  padding: 20px;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 15px;
+}
+
 .animelist {
   display: grid;
   grid-template-columns: repeat(6, 1fr);

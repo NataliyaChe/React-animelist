@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import AnimeList from './AnimeList'
-import axios from 'axios';
 
 function Main() {
     const [animes, setAnimes] = React.useState([]);
