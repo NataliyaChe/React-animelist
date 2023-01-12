@@ -4,9 +4,9 @@ import {useParams} from 'react-router-dom'
 
 function SingleAnimePage(props) {
     const params = useParams();
-    console.log('params', params);
+    // console.log('params', params);
 
-    const [singleAnime, setSingleAnime] = useState(params.mal_id);
+    const [singleAnime, setSingleAnime] = useState({});
 
     useEffect(() => {
         const fetchSingleAnime = async () => {
