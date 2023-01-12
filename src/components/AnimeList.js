@@ -12,7 +12,7 @@ function AnimeList(props) {
   return (
     <div style={styles.div} className='animelist'>
         { props.animes.map(anime => {
-          return <AnimeItem anime={fetchAnimes} key={anime.mal_id} onClick={props.onItemClick} />
+          return <AnimeItem anime={anime} key={anime.mal_id} onClick={props.onItemClick} />
         }) }
     </div>
   );
