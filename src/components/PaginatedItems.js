@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import ReactPaginate from 'react-paginate';
 
-function PaginatedItems({ onclickHandler, totalPages }) {
+function PaginatedItems(props) {
+  
     return (
       <>
         <ReactPaginate
@@ -19,11 +20,12 @@ function PaginatedItems({ onclickHandler, totalPages }) {
            activeLinkClassName="active-link"
           breakLabel="..."
           nextLabel=">"
-          onPageChange={onclickHandler}
+          onPageChange={props.onPageChange}
           pageRangeDisplayed={5}
-          pageCount={totalPages}
+          pageCount={props.pageCount}
           previousLabel="<"
           renderOnZeroPageCount={null}
+          itemsPerPage={props.itemsPerPage} 
         />
       </>
     );
