@@ -9,7 +9,6 @@ const styles = {
 }
 
 function AnimeList(props) {
-  console.log('props', props)
   return (
     <div style={styles.div} className='animelist'>
         { props.animes.map(anime => {
