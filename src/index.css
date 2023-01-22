@@ -39,7 +39,7 @@ code {
 
 .animelist {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 20px;
 }
 
@@ -88,4 +88,27 @@ code {
   padding: 8px;
   font-weight: 800;
   text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  /* gap: 20px; */
+}
+
+.genres-container {
+  border: 2px solid teal;
+  border-radius: 10px;
+  list-style: none;
+  padding: 10px;
+}
+
+.main {
+  margin: 0 auto;
+}
+
+.title {
+  color: teal;
+  text-align: center;
+  
 }
