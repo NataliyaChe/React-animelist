@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react'
 import AnimeList from './AnimeList'
 import Pagination from './Pagination'
@@ -24,7 +25,6 @@ function Main() {
     const onclickHandler = (event) => {
       setCurrentPage(event.selected+1)
    }
-
 
 function clickOnItem(name) {
   console.log('name', name)
