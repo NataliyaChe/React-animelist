@@ -11,7 +11,7 @@ function Main() {
     const [currentPage, setCurrentPage] = useState(1);
     const [animes, setAnimes] = useState([]);
 
-    const [genres, setGenres] = useState([])
+    // const [genres, setGenres] = useState([])
     
     useEffect(() => {
       const fetchAnimes = async () => {
@@ -23,15 +23,6 @@ function Main() {
       fetchAnimes()
     }, [currentPage])
     
-    useEffect(() => {
-      const fetchGenres = async () => {
-        const data = await fetch('https://api.jikan.moe/v4/genres/anime');
-        const genres = await data.json();
-        setGenres(genres.data)
-        console.log('genres', genres.data);
-      }
-      fetchGenres()
-    }, [])
 
     const onclickHandler = (event) => {
       setCurrentPage(event.selected+1)
@@ -40,6 +31,10 @@ function Main() {
 function clickOnItem(name) {
   console.log('name', name)
 }
+
+// function clickOnGenre(mal_id) {
+//   console.log('genre', mal_id)
+// }
 
   return (
     <div className='main'>
@@ -52,12 +47,8 @@ function clickOnItem(name) {
             totalPages={totalPages}
         />
         </div>
-        <GenreList genres={genres}/>
+        <GenreList />
       </div>
-        {/* <Pagination 
-            onclickHandler={onclickHandler} 
-            totalPages={totalPages}
-        /> */}
     </div>
   );
 }
