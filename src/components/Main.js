@@ -29,22 +29,15 @@ function Main() {
       setCurrentPage(event.selected+1)
    }
 
-function clickOnItem(name) {
-  console.log('name', name)
-}
-
-// function clickOnGenre(event) {
-//   // setGenreID(genre.mal_id);
-//   console.log('genresID', this.mal_id);
-// }
-
-// const updateGenreID = value => {
-//   setGenreID(value)
-// }
+  function clickOnItem(name) {
+    console.log('name', name)
+  }
 
 function updateGenreID(value) {
-  setGenreID(value)
+  setGenreID(value);
 }
+
+console.log('genreID value', genreID)
 
   return (
     <div className='main'>
@@ -57,8 +50,7 @@ function updateGenreID(value) {
             totalPages={totalPages}
         />
         </div>
-        {/* <GenreList clickOnGenre={clickOnGenre}/> */}
-        <GenreList updateGenreID={updateGenreID} genreID={genreID}/>
+        <GenreList updateGenreID={updateGenreID}/>
       </div>
     </div>
   );

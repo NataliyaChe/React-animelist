@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import GenreItem from './GenreItem'
 
 function GenreList(props) {
     const [genres, setGenres] = useState([]);
@@ -16,27 +15,17 @@ function GenreList(props) {
         fetchGenres()
     }, [])
 
-    // const clickOnGenre = (event) => {
-    //     props.updateGenreID(event.target.mal_id)
-    //     console.log('genresID', event.target.mal_id);
-    //   }
-
       function clickOnGenre(event) {
-        props.updateGenreID(event.target.key)
-        console.log('genresID', event.target);
+        props.updateGenreID(event.target.dataset.id)
+        console.log('genresID', event.target.dataset.id);
 }
 
     return (
       <>
-        {/* <ul className="genres-container">
-            { genres.map(genre => {
-                return <GenreItem genre={genre} key={genre.mal_id} onClick={props.clickOnGenre} />
-            }) }
-        </ul> */}
         <ul className="genres-container">
             { 
                 genres.map(genre => (
-                    <li className='genre-item' key={genre.mal_id} onClick={clickOnGenre}>
+                    <li className='genre-item' data-id={genre.mal_id} key={genre.mal_id} onClick={clickOnGenre}>
                        {genre.name}
                     </li>
                 ))
