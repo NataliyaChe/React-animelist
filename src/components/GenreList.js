@@ -16,30 +16,32 @@ function GenreList(props) {
         fetchGenres()
     }, [])
 
-    function clickOnGenre(event) {
-        console.log('genre', event)
-        // setGenreID(genre.mal_id);
-        console.log('genresID', genreID);
-      }
-      
+    // const clickOnGenre = (event) => {
+    //     props.updateGenreID(event.target.mal_id)
+    //     console.log('genresID', event.target.mal_id);
+    //   }
 
-    //   useEffect(() => {
-    //     const fetchAnimesByGenres = async () => {
-    //       const data = await fetch(`https://api.jikan.moe/v4/anime?genres=${genreID}`);
-    //       const animes = await data.json();
-    //     //   setTotalPages(animes.pagination.items.total);
-    //       setAnimes(animes.data)
-    //     };
-    //     fetchAnimesByGenres();
-    //   }, [])
+      function clickOnGenre(event) {
+        props.updateGenreID(event.target.key)
+        console.log('genresID', event.target);
+}
 
     return (
       <>
-        <ul className="genres-container">
+        {/* <ul className="genres-container">
             { genres.map(genre => {
-                return <GenreItem genre={genre} key={genre.mal_id} onClick={clickOnGenre} />
+                return <GenreItem genre={genre} key={genre.mal_id} onClick={props.clickOnGenre} />
             }) }
-        </ul>
+        </ul> */}
+        <ul className="genres-container">
+            { 
+                genres.map(genre => (
+                    <li className='genre-item' key={genre.mal_id} onClick={clickOnGenre}>
+                       {genre.name}
+                    </li>
+                ))
+            }
+        </ul> 
       </>
     );
 }

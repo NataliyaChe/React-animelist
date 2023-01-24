@@ -12,6 +12,7 @@ function Main() {
     const [animes, setAnimes] = useState([]);
 
     // const [genres, setGenres] = useState([])
+    const [genreID, setGenreID] = useState(0);
     
     useEffect(() => {
       const fetchAnimes = async () => {
@@ -32,9 +33,18 @@ function clickOnItem(name) {
   console.log('name', name)
 }
 
-// function clickOnGenre(mal_id) {
-//   console.log('genre', mal_id)
+// function clickOnGenre(event) {
+//   // setGenreID(genre.mal_id);
+//   console.log('genresID', this.mal_id);
 // }
+
+// const updateGenreID = value => {
+//   setGenreID(value)
+// }
+
+function updateGenreID(value) {
+  setGenreID(value)
+}
 
   return (
     <div className='main'>
@@ -47,7 +57,8 @@ function clickOnItem(name) {
             totalPages={totalPages}
         />
         </div>
-        <GenreList />
+        {/* <GenreList clickOnGenre={clickOnGenre}/> */}
+        <GenreList updateGenreID={updateGenreID} genreID={genreID}/>
       </div>
     </div>
   );
