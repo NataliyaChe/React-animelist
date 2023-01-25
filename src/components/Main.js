@@ -16,13 +16,14 @@ function Main() {
     
     useEffect(() => {
       const fetchAnimes = async () => {
-        const data = await fetch(`https://api.jikan.moe/v4/top/anime?limit=${animesPerPage}&page=${currentPage}`);
+        const data = await fetch(`https://api.jikan.moe/v4/anime?genres=${genreID}&limit=${animesPerPage}&page=${currentPage}`);
         const animes = await data.json();
         setTotalPages(animes.pagination.items.total);
         setAnimes(animes.data)
+        console.log('data', animes.data)
       }
       fetchAnimes()
-    }, [currentPage])
+    }, [currentPage, genreID])
     
 
     const onclickHandler = (event) => {
@@ -30,11 +31,12 @@ function Main() {
    }
 
   function clickOnItem(name) {
-    console.log('name', name)
+    // console.log('name', name)
   }
 
 function updateGenreID(value) {
   setGenreID(value);
+  
 }
 
 console.log('genreID value', genreID)
