@@ -13,14 +13,22 @@ function Main() {
 
     // const [genres, setGenres] = useState([])
     const [genreID, setGenreID] = useState(0);
-    
+
     useEffect(() => {
       const fetchAnimes = async () => {
-        const data = await fetch(`https://api.jikan.moe/v4/anime?genres=${genreID}&limit=${animesPerPage}&page=${currentPage}`);
-        const animes = await data.json();
-        setTotalPages(animes.pagination.items.total);
-        setAnimes(animes.data)
-        console.log('data', animes.data)
+          let link
+          if(genreID === 0) {
+            link = `https://api.jikan.moe/v4/top/anime?limit=${animesPerPage}&page=${currentPage}`
+          } else {
+            link = `https://api.jikan.moe/v4/anime?genres=${genreID}&limit=${animesPerPage}&page=${currentPage}`
+          }
+          const data = await fetch(link);
+          // const animes = await data.json();
+        // }
+          const animes = await data.json();
+          setTotalPages(Math.ceil(animes.pagination.items.total / animesPerPage));
+          setAnimes(animes.data)
+          console.log('data', animes.data)
       }
       fetchAnimes()
     }, [currentPage, genreID])
@@ -35,7 +43,12 @@ function Main() {
   }
 
 function updateGenreID(value) {
-  setGenreID(value);
+  if(value === genreID) {
+    setGenreID(0);
+    // console.log('value', genreID)
+  } else {
+    setGenreID(value);
+  }
   
 }
 
