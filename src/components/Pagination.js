@@ -20,7 +20,7 @@ function Pagination(props) {
           breakLabel="..."
           nextLabel=">"
           onPageChange={props.onclickHandler}
-          // forcePage={props.updateGenreID}
+          forcePage={props.currentPage-1}
           pageRangeDisplayed={5}
           pageCount={props.totalPages}
           previousLabel="<"

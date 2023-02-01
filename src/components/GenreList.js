@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 function GenreList(props) {
     const [genres, setGenres] = useState([]);
-    const [genreID, setGenreID] = useState(0);
+    const [activeGenre, setActiveGenre] = useState(false);
     // const [animes, setAnimes] = useState([]);
 
     useEffect(() => {
@@ -10,14 +10,13 @@ function GenreList(props) {
         const data = await fetch('https://api.jikan.moe/v4/genres/anime');
         const genres = await data.json();
         setGenres(genres.data)
-        console.log('genres', genres.data);
         }
         fetchGenres()
     }, [])
 
       function clickOnGenre(event) {
-        props.updateGenreID(event.target.dataset.id)
-        console.log('genresID', event.target.dataset.id);
+        props.updateGenreID(event.target.dataset.id);
+        event.target.classList.toggle("active-genre")
 }
 
     return (

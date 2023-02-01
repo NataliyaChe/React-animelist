@@ -112,3 +112,12 @@ code {
   text-align: center;
   
 }
+
+.genre-item {
+  padding: 4px;
+}
+
+.active-genre {
+  background: teal;
+  border-radius: 4px;
+}

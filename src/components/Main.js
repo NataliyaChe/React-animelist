@@ -47,14 +47,13 @@ function updateGenreID(value) {
   if(value === genreID) {
     setGenreID(0);
     setCurrentPage(1);
-    // console.log('value', genreID)
+    
   } else {
     setGenreID(value);
+    setCurrentPage(1);
   }
   
 }
-
-console.log('genreID value', genreID)
 
   return (
     <div className='main'>
