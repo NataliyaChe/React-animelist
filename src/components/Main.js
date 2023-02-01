@@ -6,7 +6,7 @@ import GenreList from './GenreList'
 
 function Main() {
     const [totalPages, setTotalPages] = useState(0);
-    const animesPerPage = 30;
+    const animesPerPage = 25;
 
     const [currentPage, setCurrentPage] = useState(1);
     const [animes, setAnimes] = useState([]);
@@ -16,15 +16,16 @@ function Main() {
 
     useEffect(() => {
       const fetchAnimes = async () => {
-          let link
-          if(genreID === 0) {
-            link = `https://api.jikan.moe/v4/top/anime?limit=${animesPerPage}&page=${currentPage}`
-          } else {
-            link = `https://api.jikan.moe/v4/anime?genres=${genreID}&limit=${animesPerPage}&page=${currentPage}`
-          }
-          const data = await fetch(link);
-          // const animes = await data.json();
-        // }
+          const link = genreID ? `anime?genres=${genreID}&limit=${animesPerPage}&page=${currentPage}` : `top/anime?limit=${animesPerPage}&page=${currentPage}`
+          
+      const data = await fetch(`https://api.jikan.moe/v4/${link}`)
+          // if(genreID === 0) {
+          //   link = `https://api.jikan.moe/v4/top/anime?limit=${animesPerPage}&page=${currentPage}`
+          // } else {
+          //   link = `https://api.jikan.moe/v4/anime?genres=${genreID}&limit=${animesPerPage}&page=${currentPage}`
+          // }
+          // const data = await fetch(link);
+
           const animes = await data.json();
           setTotalPages(Math.ceil(animes.pagination.items.total / animesPerPage));
           setAnimes(animes.data)
@@ -45,6 +46,7 @@ function Main() {
 function updateGenreID(value) {
   if(value === genreID) {
     setGenreID(0);
+    setCurrentPage(1);
     // console.log('value', genreID)
   } else {
     setGenreID(value);
@@ -63,6 +65,8 @@ console.log('genreID value', genreID)
         <Pagination 
             onclickHandler={onclickHandler} 
             totalPages={totalPages}
+            updateGenreID={updateGenreID}
+            currentPage={currentPage}
         />
         </div>
         <GenreList updateGenreID={updateGenreID}/>
