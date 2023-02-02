@@ -11,17 +11,13 @@ function GenreList(props) {
         }
         fetchGenres()
     }, [])
-
-    function clickOnGenre(event) {
-        props.updateGenreID(+event.target.dataset.id);
-    }
     
     return (
       <>
         <ul className="genres-container">
             { 
                 genres.map(genre => (
-                    <li className={"genre-item " + (props.genreID === genre.mal_id ? 'active-genre' : '')} data-id={genre.mal_id} key={genre.mal_id} onClick={clickOnGenre}>
+                    <li className={"genre-item " + (props.genreID === genre.mal_id ? 'active-genre' : '')} data-id={genre.mal_id} key={genre.mal_id} onClick={props.updateGenreID}>
                        {genre.name}
                     </li>
                 ))

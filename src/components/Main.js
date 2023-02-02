@@ -43,12 +43,12 @@ function Main() {
     // console.log('name', name)
   }
 
-function updateGenreID(value) {
-  if(value === genreID) {
+function updateGenreID(event) {
+  if(+event.target.dataset.id === genreID) {
     setGenreID(0);
     setCurrentPage(1);  
   } else {
-    setGenreID(value);
+    setGenreID(+event.target.dataset.id);
     setCurrentPage(1);
   }
   
