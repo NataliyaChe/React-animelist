@@ -67,7 +67,7 @@ function updateGenreID(value) {
             currentPage={currentPage}
         />
         </div>
-        <GenreList updateGenreID={updateGenreID}/>
+        <GenreList updateGenreID={updateGenreID} genreID={genreID} setGenreID={setGenreID}/>
       </div>
     </div>
   );
