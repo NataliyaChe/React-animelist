@@ -1,4 +1,3 @@
-import { eventWrapper } from '@testing-library/user-event/dist/utils';
 import React, { useState, useEffect } from 'react'
 
 function GenreList(props) {
@@ -14,12 +13,7 @@ function GenreList(props) {
     }, [])
 
     function clickOnGenre(event) {
-        props.updateGenreID(event.target.dataset.id);
-        if (props.genreID === +event.target.dataset.id) {
-          props.setGenreID(0);
-        } else {
-          props.setGenreID(+event.target.dataset.id);
-        }
+        props.updateGenreID(+event.target.dataset.id);
     }
     
     return (
