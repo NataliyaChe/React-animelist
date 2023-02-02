@@ -113,11 +113,12 @@ code {
   
 }
 
-.genre-item {
-  padding: 4px;
-}
-
 .active-genre {
   background: teal;
   border-radius: 4px;
+}
+
+.inactive-genre {
+  background: red;
+  
 }

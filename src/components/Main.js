@@ -46,8 +46,7 @@ function Main() {
 function updateGenreID(value) {
   if(value === genreID) {
     setGenreID(0);
-    setCurrentPage(1);
-    
+    setCurrentPage(1);  
   } else {
     setGenreID(value);
     setCurrentPage(1);
