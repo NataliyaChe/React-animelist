@@ -1,3 +1,4 @@
+import { eventWrapper } from '@testing-library/user-event/dist/utils';
 import React, { useState, useEffect } from 'react'
 
 function GenreList(props) {
@@ -14,7 +15,7 @@ function GenreList(props) {
         fetchGenres()
     }, [])
 
-      function clickOnGenre(event) {
+    function clickOnGenre(event) {
         props.updateGenreID(event.target.dataset.id);
         console.log('active genre', activeGenre, event.target);
         (!activeGenre) ? setActiveGenre(event.target.dataset.id) :
@@ -34,7 +35,7 @@ function GenreList(props) {
         <ul className="genres-container">
             { 
                 genres.map(genre => (
-                    <li className={"genre-item " + (activeGenre ? 'active-genre' : '')} data-id={genre.mal_id} key={genre.mal_id} onClick={clickOnGenre}>
+                    <li className={"genre-item " + (+activeGenre === genre.mal_id ? 'active-genre' : '')} data-id={genre.mal_id} key={genre.mal_id} onClick={clickOnGenre}>
                        {genre.name}
                     </li>
                 ))
