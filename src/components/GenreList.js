@@ -15,9 +15,7 @@ function GenreList(props) {
 
     function clickOnGenre(event) {
         props.updateGenreID(event.target.dataset.id);
-        if(props.genreID === 0) {
-            props.setGenreID(+event.target.dataset.id);
-        } else if (props.genreID === +event.target.dataset.id) {
+        if (props.genreID === +event.target.dataset.id) {
           props.setGenreID(0);
         } else {
           props.setGenreID(+event.target.dataset.id);
@@ -29,7 +27,7 @@ function GenreList(props) {
         <ul className="genres-container">
             { 
                 genres.map(genre => (
-                    <li className={"genre-item " + (props.genreID == genre.mal_id ? 'active-genre' : '')} data-id={genre.mal_id} key={genre.mal_id} onClick={clickOnGenre}>
+                    <li className={"genre-item " + (props.genreID === genre.mal_id ? 'active-genre' : '')} data-id={genre.mal_id} key={genre.mal_id} onClick={clickOnGenre}>
                        {genre.name}
                     </li>
                 ))
