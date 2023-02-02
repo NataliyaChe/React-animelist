@@ -40,17 +40,16 @@ function Main() {
    }
 
   function clickOnItem(name) {
-    // console.log('name', name)
+    console.log('name', name)
   }
 
 function updateGenreID(event) {
   if(+event.target.dataset.id === genreID) {
     setGenreID(0);
-    setCurrentPage(1);  
   } else {
     setGenreID(+event.target.dataset.id);
-    setCurrentPage(1);
   }
+  setCurrentPage(1);
   
 }
 

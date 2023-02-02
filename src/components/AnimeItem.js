@@ -15,12 +15,12 @@ function AnimeItem({ anime, onClick }) {
   let navigate = useNavigate();
 
   return (
-    <div className='anime-item' style={styles.div} onClick={() => console.log('test')}>
-        <h3>{anime.title}</h3>
+    <div className='anime-item' style={styles.div} onClick={() => navigate(`/${anime.mal_id}`)}>
+        <img className="anime-poster" src={anime.images.webp.image_url} alt="anime poster"/>
+        <h3 className='anime-title'>{anime.title}</h3>
         <p>{anime.episodes}</p>
         <p>{anime.type}</p>
-        <p>{anime.mal_id}</p>
-        <button onClick={() => navigate(`/${anime.mal_id}`)}>Open</button>
+        {/* <button className='button' onClick={() => navigate(`/${anime.mal_id}`)}>Open</button> */}
     </div>
   );
 }
