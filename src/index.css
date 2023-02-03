@@ -1,10 +1,13 @@
 body {
   margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(../src/images/background.png);
 }
 
 code {
@@ -20,39 +23,116 @@ code {
 .header {
   background: teal;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
-.header__title {
+.title {
+  display: block;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
   color: white;
-  margin: 0 auto;
+  text-decoration: none;
 }
 
-.navbar {
-  background: teal;
-  padding: 20px;
-}
-
-.navbar__links {
+.main {
   display: flex;
-  gap: 15px;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* background: white; */
 }
 
-.animelist {
+/* .animelist {
+  background: red;
+  margin: '0 auto';
+} */
+
+.animelist-wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 20px;
 }
 
-.items {
-  background-color: teal;
-  padding: 5px;
+.anime-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  background: white;
+  /* background: teal; */
+  /* padding: '10px';
+  border: '2px solid teal';
+  border-radius: '10px';
+  max-width: '150px'; */
 }
 
-.container {
+.anime-item:hover {
+  box-shadow: 8px 10px 5px 2px rgb(85, 131, 131);
+}
+
+.anime-poster {
+  width: 150px;
+}
+
+.anime-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+  margin: 0;
+}
+
+.flex-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.single-anime {
+  box-sizing: border-box;
+  max-width: 1200px;
+  background: white;
+  padding: 40px;
+  margin: 0 auto 60px;
   border: 2px solid teal;
-  margin-bottom: 5px;
+  border-radius: 20px;
 }
 
+.anime-synopsis {
+  max-width: 700px;
+  margin-top: 40px;
+}
+
+.bold-text {
+  font-weight: 500;
+}
+
+.genres-container {
+  border: 2px solid teal;
+  border-radius: 10px;
+  list-style: none;
+  padding: 12px;
+  background: white;
+}
+
+.genre-item {
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+/* .genre-item:hover {
+  background: #b9dcdc;
+  border-radius: 4px;
+} */
+
+.active-genre {
+  background: teal;
+  border-radius: 4px;
+  color: white;
+}
+
+/* Pagination start */
 .pagination {
   display: flex;
   padding-left: 0;
@@ -69,6 +149,7 @@ code {
   background-color: teal;
   padding: 5px;
   border: 2px solid white;
+  border-radius: 10px;
 }
 
 .active {
@@ -80,68 +161,14 @@ code {
   color: teal;
 }
 
-.previous, .next {
-  
-}
-
 .previous-link, .next-link {
   padding: 8px;
   font-weight: 800;
   text-align: center;
 }
+/* Pagination end */
 
-.flex-container {
-  display: flex;
-  justify-content: center;
-  /* gap: 20px; */
-}
-
-.genres-container {
-  border: 2px solid teal;
-  border-radius: 10px;
-  list-style: none;
-  padding: 10px;
-}
-
-.main {
-  margin: 0 auto;
-}
-
-.title {
-  color: teal;
-  text-align: center;
-  
-}
-
-.active-genre {
-  background: teal;
-  border-radius: 4px;
-}
-
-.anime-item {
-  cursor: pointer;
-  padding: '10px';
-  border: '2px solid teal';
-  border-radius: '10px';
-  max-width: '150px';
-}
-
-.anime-item:hover {
-  box-shadow: 8px 10px 5px 2px rgb(85, 131, 131);
-}
-
-.anime-poster {
-  width: 150px;
-}
-
-.anime-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;  
-  padding: 0 10px;
-}
-
-.button {
+/* .button {
   padding: 5px 10px;
   background: teal;
   color: white;
@@ -149,4 +176,15 @@ code {
   border-radius: 4px;
   font-size: 14px;
   cursor: pointer;
-}
+} */
+
+
+/* h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+} */

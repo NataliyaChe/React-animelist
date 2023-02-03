@@ -5,18 +5,16 @@ function Pagination(props) {
     return (
       <>
         <ReactPaginate
-           pageClassName="page-item"
-           pageLinkClassName="page-link"
-           previousClassName="page-item previous"
-           previousLinkClassName="page-link previous-link"
-           nextClassName="page-item next"
-           nextLinkClassName="page-link next-link"
-        //    breakClassName="page-item"
-        //    breakLinkClassName="page-link"
-           marginPagesDisplayed={2}
-           containerClassName="pagination"
-           activeClassName="active"
-           activeLinkClassName="active-link"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item previous"
+          previousLinkClassName="page-link previous-link"
+          nextClassName="page-item next"
+          nextLinkClassName="page-link next-link"
+          marginPagesDisplayed={2}
+          containerClassName="pagination"
+          activeClassName="active"
+          activeLinkClassName="active-link"
           breakLabel="..."
           nextLabel=">"
           onPageChange={props.onclickHandler}

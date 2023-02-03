@@ -13,7 +13,8 @@ function GenreList(props) {
     }, [])
     
     return (
-      <>
+      <div>
+        <h3>Genres:</h3>
         <ul className="genres-container">
             { 
                 genres.map(genre => (
@@ -23,7 +24,7 @@ function GenreList(props) {
                 ))
             }
         </ul> 
-      </>
+      </div>
     );
 }
 

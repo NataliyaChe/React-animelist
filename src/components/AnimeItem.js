@@ -1,6 +1,5 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
-// import SingleAnimePage from './SingleAnimePage'
 
 const styles = {
     div: {
@@ -11,16 +10,23 @@ const styles = {
     }
 }
 
-function AnimeItem({ anime, onClick }) {
+function AnimeItem({ anime }) {
   let navigate = useNavigate();
 
   return (
-    <div className='anime-item' style={styles.div} onClick={() => navigate(`/${anime.mal_id}`)}>
-        <img className="anime-poster" src={anime.images.webp.image_url} alt="anime poster"/>
+    <div className="anime-item" 
+      style={styles.div} 
+      onClick={() => navigate(`/${anime.mal_id}`)}>
+      <img className="anime-poster" 
+        src={anime.images.webp.image_url} 
+        alt="anime poster"/>
+      <div className="container">
         <h3 className='anime-title'>{anime.title}</h3>
-        <p>{anime.episodes}</p>
-        <p>{anime.type}</p>
-        {/* <button className='button' onClick={() => navigate(`/${anime.mal_id}`)}>Open</button> */}
+        <div className="flex-wrap">
+          <p>{anime.episodes}</p>
+          <p>{anime.type}</p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 
 
-function SingleAnimePage(props) {
+function SingleAnimePage() {
     const params = useParams();
-    // console.log('params', params);
-
     const [singleAnime, setSingleAnime] = useState({});
 
     useEffect(() => {
@@ -18,8 +16,28 @@ function SingleAnimePage(props) {
       }, []);
     return (
         <div className='single-anime'>
-            <h2>{singleAnime.title}</h2>
-            <p>{singleAnime.type}</p>
+          <div className="flex-wrap">
+            <div >
+              <h2>{singleAnime.title}</h2>
+              <h3>{singleAnime.title_japanese}</h3>
+              <p>
+                <span className='bold-text'>Type:</span> {singleAnime.type}
+              </p>
+              <p>
+                <span className='bold-text'>Episodes:</span> {singleAnime.episodes}
+              </p>
+              <p>
+                <span className='bold-text'>Rating</span> {singleAnime.rating}
+              </p>
+              <p>
+                <span className='bold-text'>Year:</span> {singleAnime.year}
+              </p>
+            </div>
+            <img className="single-anime-poster" 
+            src={singleAnime?.images?.webp?.large_image_url} 
+            alt="anime poster"/>
+          </div>
+          <p className="anime-synopsis">{singleAnime.synopsis}</p>
         </div>
     );
 }
