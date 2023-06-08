@@ -7,7 +7,6 @@ function Header() {
       <div className='navbar__links'>
         <Link to='.'>Main</Link>
         <Link to='./login'>Login</Link>
-        
       </div>
     </div>
   );

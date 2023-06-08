@@ -1,5 +1,5 @@
-import React from 'react'
-import AnimeItem from './AnimeItem'
+import React from 'react';
+import AnimeItem from './AnimeItem';
 
 const styles = {
   div: {
@@ -11,9 +11,9 @@ const styles = {
 function AnimeList(props) {
   return (
     <div style={styles.div} className='animelist'>
-        { props.animes.map(anime => {
-          return <AnimeItem anime={anime} key={anime.mal_id} onClick={props.onItemClick} />
-        }) }
+      { props.animes.map(anime => {
+        return <AnimeItem anime={anime} key={anime.mal_id} onClick={props.onItemClick} />
+      }) }
     </div>
   );
 }
